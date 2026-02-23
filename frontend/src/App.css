@@ -1,34 +1,575 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.App {
+  position: relative;
+  min-height: 100vh;
+  background-color: #FFF8E7;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Curtain Overlay */
+.curtain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.App-link {
-    color: #61dafb;
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #800000 0%, #500000 50%, #800000 100%);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.curtain-left {
+  left: 0;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.curtain-right {
+  right: 0;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.curtain-content {
+  position: relative;
+  z-index: 10000;
+  text-align: center;
+  color: #D4AF37;
+  padding: 2rem;
+}
+
+.curtain-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+  line-height: 1.2;
+}
+
+.curtain-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: #F3E5AB;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Music Player Button */
+.music-player-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+  border: 3px solid #800000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(128, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-player-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(128, 0, 0, 0.4);
+}
+
+.music-icon {
+  width: 28px;
+  height: 28px;
+  color: #800000;
+  transition: transform 0.3s ease;
+}
+
+.music-icon.playing {
+  animation: musicPulse 1s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Main Content */
+.main-content {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://images.pexels.com/photos/34079355/pexels-photo-34079355.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  color: #F3E5AB;
+  margin-bottom: 1.5rem;
+}
+
+.hero-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 0 auto 2rem;
+}
+
+.hero-date {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.hero-venue {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #F3E5AB;
+  line-height: 1.6;
+}
+
+/* Countdown Section */
+.countdown-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #FFF8E7, #FFFFFF);
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.countdown-block {
+  background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+  border: 3px solid #800000;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  min-width: 120px;
+  box-shadow: 0 8px 24px rgba(128, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-block:hover {
+  box-shadow: 0 12px 32px rgba(128, 0, 0, 0.25);
+}
+
+.countdown-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #800000;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: #500000;
+  font-weight: 600;
+}
+
+/* Story Section */
+.story-section {
+  padding: 6rem 2rem;
+  background-color: #FFFFFF;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.story-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+  transition: transform 0.6s ease;
+}
+
+.story-image-container:hover .story-image {
+  transform: scale(1.05);
+}
+
+.story-content {
+  padding: 2rem;
+}
+
+.story-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: #D4AF37;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.story-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.story-text {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.8;
+  color: #2F2F2F;
+}
+
+/* Events Section */
+.events-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #FFFFFF, #FFF8E7);
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .events-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.event-card {
+  background: #FFFFFF;
+  border: 2px solid #D4AF37;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(128, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-image-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.event-card:hover .event-image {
+  transform: scale(1.1);
+}
+
+.event-content {
+  padding: 2rem;
+}
+
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.event-details {
+  margin-bottom: 1.5rem;
+}
+
+.event-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.938rem;
+  color: #2F2F2F;
+}
+
+.event-icon {
+  width: 18px;
+  height: 18px;
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.event-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.938rem;
+  line-height: 1.6;
+  color: #2F2F2F;
+}
+
+/* Venue Section */
+.venue-section {
+  padding: 6rem 2rem;
+  background-color: #FFF8E7;
+}
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .venue-grid {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.venue-info-card {
+  background: #FFFFFF;
+  border: 3px solid #D4AF37;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 12px 40px rgba(128, 0, 0, 0.15);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.venue-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37, #F3E5AB);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.venue-icon {
+  width: 40px;
+  height: 40px;
+  color: #800000;
+}
+
+.venue-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 1rem;
+}
+
+.venue-card-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2F2F2F;
+  margin-bottom: 2rem;
+}
+
+.venue-button {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #800000, #500000);
+  color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.938rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(128, 0, 0, 0.3);
+}
+
+.venue-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(128, 0, 0, 0.4);
+}
+
+.venue-map-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border: 3px solid #D4AF37;
+}
+
+.venue-map-iframe {
+  display: block;
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #800000, #500000);
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.footer-text {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #F3E5AB;
+}
+
+.footer-divider {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 2rem auto;
+}
+
+.footer-couple {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #D4AF37;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .countdown-container {
+    gap: 1rem;
+  }
+  
+  .countdown-block {
+    min-width: 90px;
+    padding: 1rem 1.25rem;
+  }
+  
+  .music-player-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .music-icon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .hero-section {
+    background-attachment: scroll;
+  }
 }
