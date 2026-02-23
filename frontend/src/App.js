@@ -1,13 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Music, MapPin, Clock, Calendar } from 'lucide-react';
+import { MapPin, Clock, Calendar } from 'lucide-react';
 import '@/App.css';
 
 function App() {
   const [curtainOpen, setCurtainOpen] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [musicPlaying, setMusicPlaying] = useState(false);
-  const audioRef = useRef(null);
 
   const weddingDate = new Date('2026-04-25T19:00:00');
 
@@ -34,29 +32,10 @@ function App() {
 
   const handleCurtainClick = () => {
     setCurtainOpen(true);
-    if (audioRef.current) {
-      audioRef.current.play();
-      setMusicPlaying(true);
-    }
-  };
-
-  const toggleMusic = () => {
-    if (audioRef.current) {
-      if (musicPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setMusicPlaying(!musicPlaying);
-    }
   };
 
   return (
     <div className="App">
-      <audio ref={audioRef} loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
-      </audio>
-
       {/* Curtain Overlay */}
       <AnimatePresence>
         {!curtainOpen && (
@@ -64,23 +43,43 @@ function App() {
             className="curtain-overlay"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 1.8 }}
             data-testid="curtain-overlay"
           >
+            {/* Left Curtain Panel */}
             <motion.div
               className="curtain-panel curtain-left"
               initial={{ x: 0 }}
               exit={{ x: '-100%' }}
-              transition={{ duration: 1.5, ease: 'easeInOut' }}
+              transition={{ duration: 1.8, ease: 'easeInOut' }}
               data-testid="curtain-left"
-            />
+            >
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+            </motion.div>
+            
+            {/* Right Curtain Panel */}
             <motion.div
               className="curtain-panel curtain-right"
               initial={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 1.5, ease: 'easeInOut' }}
+              transition={{ duration: 1.8, ease: 'easeInOut' }}
               data-testid="curtain-right"
-            />
+            >
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+              <div className="curtain-fold" />
+            </motion.div>
+            
+            {/* Curtain Rod */}
+            <div className="curtain-rod" />
+            
+            {/* Center Content */}
             <motion.div
               className="curtain-content"
               initial={{ opacity: 0, y: 20 }}
@@ -97,21 +96,6 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* Music Player Button */}
-      {curtainOpen && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2, duration: 0.5 }}
-          onClick={toggleMusic}
-          className="music-player-btn"
-          data-testid="music-toggle-btn"
-          aria-label="Toggle music"
-        >
-          <Music className={musicPlaying ? 'music-icon playing' : 'music-icon'} />
-        </motion.button>
-      )}
-
       {/* Main Content */}
       {curtainOpen && (
         <div className="main-content">
@@ -120,7 +104,7 @@ function App() {
             className="hero-section"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            transition={{ duration: 1, delay: 1.8 }}
             data-testid="hero-section"
           >
             <div className="hero-overlay" />
@@ -128,13 +112,13 @@ function App() {
               className="hero-content"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2 }}
+              transition={{ duration: 1, delay: 2.2 }}
             >
               <motion.p
                 className="hero-subtitle"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2.2 }}
+                transition={{ delay: 2.4 }}
                 data-testid="hero-subtitle"
               >
                 The Wedding Celebration of
@@ -143,7 +127,7 @@ function App() {
                 className="hero-names"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2.4, duration: 0.8 }}
+                transition={{ delay: 2.6, duration: 0.8 }}
                 data-testid="hero-names"
               >
                 Janvi & Kishan
@@ -152,13 +136,13 @@ function App() {
                 className="hero-divider"
                 initial={{ width: 0 }}
                 animate={{ width: '120px' }}
-                transition={{ delay: 2.8, duration: 0.8 }}
+                transition={{ delay: 3, duration: 0.8 }}
               />
               <motion.p
                 className="hero-date"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3 }}
+                transition={{ delay: 3.2 }}
                 data-testid="hero-date"
               >
                 April 25, 2026
@@ -167,7 +151,7 @@ function App() {
                 className="hero-venue"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3.2 }}
+                transition={{ delay: 3.4 }}
                 data-testid="hero-venue"
               >
                 Dhartii RiverView Resort, Jalalpur, Navsari, Gujarat
@@ -401,7 +385,7 @@ function App() {
           >
             <div className="container">
               <h2 className="section-title" data-testid="venue-title">Celebration Details</h2>
-              <div className="venue-grid">
+              <div className="venue-content-centered">
                 <motion.div
                   className="venue-info-card"
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -426,27 +410,6 @@ function App() {
                   >
                     Navigate to Venue
                   </a>
-                </motion.div>
-
-                <motion.div
-                  className="venue-map-card"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  data-testid="venue-map"
-                >
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.123456789012!2d72.95!3d20.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDUxJzAwLjAiTiA3MsKwNTcnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                    width="100%"
-                    height="400"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Venue Location"
-                    className="venue-map-iframe"
-                  />
                 </motion.div>
               </div>
             </div>

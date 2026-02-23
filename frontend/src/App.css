@@ -23,26 +23,140 @@
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
+  background-color: #1a0a0a;
 }
 
+/* Curtain Rod */
+.curtain-rod {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, #8B7355, #654321);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), inset 0 2px 5px rgba(255, 255, 255, 0.2);
+  z-index: 10001;
+  border-bottom: 3px solid #3d2817;
+}
+
+.curtain-rod::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, transparent 0%, #d4af37 2%, transparent 4%, transparent 96%, #d4af37 98%, transparent 100%);
+  background-size: 50px 100%;
+}
+
+/* Curtain Panels */
 .curtain-panel {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(135deg, #800000 0%, #500000 50%, #800000 100%);
+  background: linear-gradient(90deg, 
+    #8B0000 0%, 
+    #A00000 10%,
+    #8B0000 20%,
+    #700000 30%,
+    #8B0000 40%,
+    #A00000 50%,
+    #8B0000 60%,
+    #700000 70%,
+    #8B0000 80%,
+    #A00000 90%,
+    #8B0000 100%
+  );
+  box-shadow: inset -15px 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 0 0 0;
 }
 
 .curtain-left {
   left: 0;
-  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 15px 0 40px rgba(0, 0, 0, 0.7), inset -20px 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .curtain-right {
   right: 0;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7), inset 20px 0 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Curtain Folds - Realistic Vertical Pleats */
+.curtain-fold {
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 15%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 65%,
+    transparent 85%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  box-shadow: 
+    inset 3px 0 8px rgba(0, 0, 0, 0.4),
+    inset -3px 0 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.curtain-fold::before {
+  content: '';
+  position: absolute;
+  left: 30%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(0, 0, 0, 0.2) 80%,
+    transparent 100%
+  );
+}
+
+.curtain-fold::after {
+  content: '';
+  position: absolute;
+  right: 30%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 20%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+}
+
+/* Add fabric texture overlay */
+.curtain-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    );
+  pointer-events: none;
+}
+
+/* Curtain Content */
 .curtain-content {
   position: relative;
   z-index: 10000;
@@ -56,7 +170,10 @@
   font-size: clamp(3rem, 10vw, 7rem);
   font-weight: 400;
   margin-bottom: 1.5rem;
-  text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+  text-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.6),
+    0 0 40px rgba(212, 175, 55, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.5);
   line-height: 1.2;
 }
 
@@ -75,50 +192,6 @@
   }
   50% {
     opacity: 1;
-  }
-}
-
-/* Music Player Button */
-.music-player-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
-  border: 3px solid #800000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 8px 24px rgba(128, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.music-player-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(128, 0, 0, 0.4);
-}
-
-.music-icon {
-  width: 28px;
-  height: 28px;
-  color: #800000;
-  transition: transform 0.3s ease;
-}
-
-.music-icon.playing {
-  animation: musicPulse 1s ease-in-out infinite;
-}
-
-@keyframes musicPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
   }
 }
 
@@ -218,18 +291,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  max-width: 800px;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  flex-wrap: nowrap;
+  max-width: 900px;
   margin: 0 auto;
+  overflow-x: auto;
+  padding: 0.5rem;
 }
 
 .countdown-block {
   background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
   border: 3px solid #800000;
   border-radius: 12px;
-  padding: 1.5rem 2rem;
-  min-width: 120px;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem);
+  min-width: clamp(70px, 20vw, 120px);
+  flex-shrink: 0;
   box-shadow: 0 8px 24px rgba(128, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -240,7 +316,7 @@
 
 .countdown-number {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.75rem, 5vw, 4rem);
   font-weight: 900;
   color: #800000;
   line-height: 1;
@@ -249,7 +325,7 @@
 
 .countdown-label {
   font-family: 'Lato', sans-serif;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(0.625rem, 2vw, 1rem);
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   color: #500000;
@@ -423,17 +499,11 @@
   background-color: #FFF8E7;
 }
 
-.venue-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+.venue-content-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 3rem;
-}
-
-@media (min-width: 768px) {
-  .venue-grid {
-    grid-template-columns: 1fr 1.5fr;
-  }
 }
 
 .venue-info-card {
@@ -447,6 +517,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 600px;
 }
 
 .venue-icon-wrapper {
@@ -503,18 +574,6 @@
   box-shadow: 0 8px 28px rgba(128, 0, 0, 0.4);
 }
 
-.venue-map-card {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  border: 3px solid #D4AF37;
-}
-
-.venue-map-iframe {
-  display: block;
-  border-radius: 8px;
-}
-
 /* Footer */
 .footer {
   padding: 4rem 2rem;
@@ -546,30 +605,26 @@
   margin-top: 1rem;
 }
 
-/* Responsive adjustments */
+/* Mobile Optimizations */
 @media (max-width: 767px) {
-  .countdown-container {
-    gap: 1rem;
-  }
-  
-  .countdown-block {
-    min-width: 90px;
-    padding: 1rem 1.25rem;
-  }
-  
-  .music-player-btn {
-    width: 50px;
-    height: 50px;
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
-  
-  .music-icon {
-    width: 22px;
-    height: 22px;
-  }
-  
   .hero-section {
     background-attachment: scroll;
+  }
+  
+  .countdown-container {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .countdown-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .story-content {
+    padding: 1rem;
+  }
+  
+  .venue-info-card {
+    padding: 2rem 1.5rem;
   }
 }
