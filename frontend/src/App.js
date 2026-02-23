@@ -44,6 +44,7 @@ function App() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}
+            onClick={handleCurtainClick}
             data-testid="curtain-overlay"
           >
             {/* Left Curtain Panel */}
@@ -77,7 +78,7 @@ function App() {
             </motion.div>
             
             {/* Curtain Rod */}
-            <div className="curtain-rod" />
+            {/* <div className="curtain-rod" /> */}
             
             {/* Center Content */}
             <motion.div
@@ -86,11 +87,10 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              onClick={handleCurtainClick}
               data-testid="curtain-click-area"
             >
-              <h1 className="curtain-names">Janvi & Kishan</h1>
-              <p className="curtain-subtitle">Click anywhere to enter</p>
+              <h1 className="curtain-names">Jhanvi & Kishan</h1>
+              <p className="curtain-subtitle">Open Invitation</p>
             </motion.div>
           </motion.div>
         )}
@@ -130,7 +130,25 @@ function App() {
                 transition={{ delay: 2.6, duration: 0.8 }}
                 data-testid="hero-names"
               >
-                Janvi & Kishan
+                Jhanvi
+              </motion.h1>
+              <motion.h1
+                className="hero-names"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2.6, duration: 0.8 }}
+                data-testid="hero-names"
+              >
+                &
+              </motion.h1>
+              <motion.h1
+                className="hero-names"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2.6, duration: 0.8 }}
+                data-testid="hero-names"
+              >
+                Kishan
               </motion.h1>
               <motion.div
                 className="hero-divider"
@@ -225,7 +243,7 @@ function App() {
                 >
                   <img
                     src="https://images.pexels.com/photos/29623186/pexels-photo-29623186.jpeg"
-                    alt="Janvi and Kishan"
+                    alt="Jhanvi and Kishan"
                     className="story-image"
                     data-testid="story-image"
                   />
@@ -240,7 +258,7 @@ function App() {
                   <p className="story-label" data-testid="story-label">THE BEGINNING</p>
                   <h2 className="story-title" data-testid="story-title">A Tale of Two Hearts</h2>
                   <p className="story-text" data-testid="story-text">
-                    What started as a simple conversation has blossomed into a beautiful journey of shared dreams and endless laughter. From the moment Janvi and Kishan first met, it was clear that their paths were meant to intertwine. Over the years, they've built a life filled with adventures, supporting each other through every milestone. Today, they are excited to embark on their greatest adventure yet.
+                    What started as a simple conversation has blossomed into a beautiful journey of shared dreams and endless laughter. From the moment Jhanvi and Kishan first met, it was clear that their paths were meant to intertwine. Over the years, they've built a life filled with adventures, supporting each other through every milestone. Today, they are excited to embark on their greatest adventure yet.
                   </p>
                 </motion.div>
               </div>
@@ -428,7 +446,7 @@ function App() {
               We look forward to celebrating our special day with you and creating beautiful memories together.
             </p>
             <div className="footer-divider" />
-            <p className="footer-couple">Janvi & Kishan</p>
+            <p className="footer-couple">Jhanvi & Kishan</p>
           </motion.footer>
         </div>
       )}
