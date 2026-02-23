@@ -1,0 +1,133 @@
+{
+  "identity": {
+    "name": "Janvi & Kishan Wedding",
+    "theme": "Gujarati Royal Wedding",
+    "tone": "Elegant, Traditional, Romantic, Celebratory",
+    "description": "A single-page wedding invitation with a dramatic curtain reveal, rich cultural aesthetics, and smooth animations."
+  },
+  "typography": {
+    "primary_font": "Playfair Display, serif",
+    "secondary_font": "Lato, sans-serif",
+    "accent_font": "Great Vibes, cursive",
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tight",
+      "h2": "text-4xl md:text-5xl font-serif tracking-wide",
+      "h3": "text-2xl md:text-3xl font-serif",
+      "body": "text-base md:text-lg leading-relaxed",
+      "caption": "text-sm tracking-widest uppercase"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": "#800000",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#D4AF37",
+      "secondary_foreground": "#2F2F2F",
+      "background": "#FFF8E7",
+      "surface": "#FFFFFF",
+      "text": "#2F2F2F",
+      "muted": "#8C8C8C"
+    },
+    "gradients": {
+      "gold": "linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%)",
+      "red_velvet": "linear-gradient(to bottom, #800000, #500000)"
+    },
+    "overlay": "rgba(0, 0, 0, 0.4)"
+  },
+  "spacing": {
+    "container": "container mx-auto px-4 md:px-6",
+    "section_padding": "py-16 md:py-24",
+    "element_spacing": "space-y-6"
+  },
+  "layout": {
+    "grid_strategy": "Single column mobile first, 2-column on desktop for story/events.",
+    "alignment": "Center aligned for hero/headings, Left aligned for story text.",
+    "border_radius": "rounded-lg"
+  },
+  "components": {
+    "CurtainOverlay": {
+      "description": "Full-screen overlay with two panels (left/right) that slide out on click. Gold/Red gradient background with 'Welcome' or 'Janvi & Kishan' text.",
+      "behavior": "Click anywhere to trigger exit animation. Plays music on interaction.",
+      "animation": "transform: translateX(-100%) (left panel), translateX(100%) (right panel). Duration: 1.5s ease-in-out."
+    },
+    "Hero": {
+      "description": "Full screen section with background image, names in accent font, date, and venue.",
+      "elements": ["Background Image", "Couple Names (Great Vibes)", "Date (Playfair)", "Venue (Lato)"]
+    },
+    "Countdown": {
+      "description": "Single line row of 4 blocks: Days, Hours, Minutes, Seconds.",
+      "style": "Gold border/background blocks with dark text. Monospace numbers."
+    },
+    "Story": {
+      "description": "Two-column layout: Image on one side, Text on other. Alternating for visual interest if multiple paragraphs.",
+      "content": "A Tale of Two Hearts... (use extracted text)"
+    },
+    "EventTimeline": {
+      "description": "Vertical list or grid of cards for 3 events: Engagement, Haldi/Mandap, Wedding.",
+      "card_style": "White card with gold border, image on top, details below. Shadow-lg."
+    },
+    "VenueMap": {
+      "description": "Full width section with embedded Google Map iframe and address details.",
+      "actions": ["Button: Navigate to Venue"]
+    },
+    "MusicPlayer": {
+      "description": "Floating Action Button (FAB) bottom right. Toggles play/pause.",
+      "icon": "MusicIcon (Lucide)"
+    }
+  },
+  "images": {
+    "hero_bg": "https://images.pexels.com/photos/34079355/pexels-photo-34079355.jpeg",
+    "couple_story": "https://images.pexels.com/photos/29623186/pexels-photo-29623186.jpeg",
+    "engagement_event": "https://images.pexels.com/photos/16846853/pexels-photo-16846853.jpeg",
+    "haldi_event": "https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg",
+    "wedding_event": "https://images.pexels.com/photos/33343606/pexels-photo-33343606.jpeg",
+    "venue_bg": "https://images.pexels.com/photos/577269/pexels-photo-577269.jpeg",
+    "pattern_overlay": "https://www.transparenttextures.com/patterns/black-linen.png"
+  },
+  "content": {
+    "couple_names": "Janvi & Kishan",
+    "wedding_date": "2026-04-25T19:00:00",
+    "venue_name": "Dhartii RiverView Resort",
+    "venue_address": "Jalalpur, Navsari, Gujarat, India",
+    "story_text": "What started as a simple conversation has blossomed into a beautiful journey of shared dreams and endless laughter. From the moment Janvi and Kishan first met, it was clear that their paths were meant to intertwine. Over the years, they've built a life filled with adventures, supporting each other through every milestone. Today, they are excited to embark on their greatest adventure yet.",
+    "events": [
+      {
+        "title": "Engagement",
+        "date": "April 23, 2026",
+        "time": "6:30 PM",
+        "location": "Dhartii Resort Hall",
+        "description": "Kick off the festivities with a night of music, dance, and celebration."
+      },
+      {
+        "title": "Haldi & Mandap",
+        "date": "April 24, 2026",
+        "time": "10:00 AM",
+        "location": "Lotus Garden",
+        "description": "The sacred union. Witness the exchange of vows and the beautiful traditions of our heritage."
+      },
+      {
+        "title": "The Wedding",
+        "date": "April 25, 2026",
+        "time": "7:00 PM",
+        "location": "Starlight Hall",
+        "description": "Let the magic continue. An evening of dinner, toast, and dancing as we celebrate our first night as a married couple."
+      }
+    ]
+  },
+  "technical_instructions": {
+    "framework": "React",
+    "styling": "Tailwind CSS",
+    "animations": "Framer Motion",
+    "icons": "Lucide React",
+    "fonts_import": "Import 'Playfair Display', 'Great Vibes', 'Lato' from Google Fonts in index.css",
+    "music_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  },
+  "universal_guidelines": [
+    "Do not use gradients for dark colors.",
+    "Use glass-morphism effects with backdrop filters.",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Use 'sonner' for toasts.",
+    "Ensure mobile responsiveness is priority #1."
+  ]
+}
