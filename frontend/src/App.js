@@ -7,7 +7,7 @@ function App() {
   const [curtainOpen, setCurtainOpen] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  const weddingDate = new Date('2026-04-25T16:00:00');
+  const weddingDate = new Date('2026-04-25T21:00:00');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -352,7 +352,7 @@ function App() {
                     </div>
                     <div className="event-detail-item">
                       <Clock className="event-icon" />
-                      <span>6:00 PM</span>
+                      <span>10:30 AM</span>
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
@@ -365,45 +365,7 @@ function App() {
                 </div>
               </motion.div>
 
-              <motion.div
-                className="event-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ y: -10 }}
-                data-testid="event-haldi"
-              >
-                <div className="event-image-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg"
-                    alt="Haldi and Mandap Ceremony"
-                    className="event-image"
-                  />
-                </div>
-                <div className="event-content">
-                  <h3 className="event-title">Mandap Muhrat</h3>
-                  <div className="event-details">
-                    <div className="event-detail-item">
-                      <Calendar className="event-icon" />
-                      <span>April 24, 2026</span>
-                    </div>
-                    <div className="event-detail-item">
-                      <Clock className="event-icon" />
-                      <span>7:00 AM</span>
-                    </div>
-                    <div className="event-detail-item">
-                      <MapPin className="event-icon" />
-                      <span>Dhartii Resort Hall</span>
-                    </div>
-                  </div>
-                  <p className="event-description">
-                    Witness the sacred Mandap Muhurat, where prayers and rituals bless the wedding venue and mark the auspicious beginning of the wedding celebrations.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
+<motion.div
                 className="event-card"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -424,11 +386,11 @@ function App() {
                   <div className="event-details">
                     <div className="event-detail-item">
                       <Calendar className="event-icon" />
-                      <span>April 24, 2026</span>
+                      <span>April 23, 2026</span>
                     </div>
                     <div className="event-detail-item">
                       <Clock className="event-icon" />
-                      <span>10:00 AM</span>
+                      <span>5:00 PM</span>
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
@@ -458,6 +420,44 @@ function App() {
                   />
                 </div>
                 <div className="event-content">
+                  <h3 className="event-title">Mandap Muhrat</h3>
+                  <div className="event-details">
+                    <div className="event-detail-item">
+                      <Calendar className="event-icon" />
+                      <span>April 24, 2026</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <Clock className="event-icon" />
+                      <span>8:00 AM</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <MapPin className="event-icon" />
+                      <span>Dhartii Resort Hall</span>
+                    </div>
+                  </div>
+                  <p className="event-description">
+                    Witness the sacred Mandap Muhurat, where prayers and rituals bless the wedding venue and mark the auspicious beginning of the wedding celebrations.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="event-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -10 }}
+                data-testid="event-haldi"
+              >
+                <div className="event-image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg"
+                    alt="Haldi and Mandap Ceremony"
+                    className="event-image"
+                  />
+                </div>
+                <div className="event-content">
                   <h3 className="event-title">Bollywood Night</h3>
                   <div className="event-details">
                     <div className="event-detail-item">
@@ -466,7 +466,7 @@ function App() {
                     </div>
                     <div className="event-detail-item">
                       <Clock className="event-icon" />
-                      <span>8:00 PM</span>
+                      <span>7:30 PM</span>
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
@@ -504,7 +504,7 @@ function App() {
                     </div>
                     <div className="event-detail-item">
                       <Clock className="event-icon" />
-                      <span>4:00 PM</span>
+                      <span>9:00 PM</span>
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
