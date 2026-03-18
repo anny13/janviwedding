@@ -452,8 +452,8 @@ function App() {
               >
                 <div className="event-image-wrapper">
                   <img
-                    src="https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg"
-                    alt="Haldi and Mandap Ceremony"
+                    src="https://customer-assets.emergentagent.com/job_janvi-kishan-wedding/artifacts/d5fyluq0_e33ab46c-fc2e-4eda-8a48-0ea535bcf0b5.jpeg"
+                    alt="Bollywood Night"
                     className="event-image"
                   />
                 </div>
