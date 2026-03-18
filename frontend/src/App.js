@@ -490,7 +490,7 @@ function App() {
               >
                 <div className="event-image-wrapper">
                   <img
-                    src="https://images.pexels.com/photos/33343606/pexels-photo-33343606.jpeg"
+                    src="https://customer-assets.emergentagent.com/job_janvi-kishan-wedding/artifacts/tryfbowc_06629cd9-ce33-4deb-b2b6-6811213c2d79.jpeg"
                     alt="Wedding Ceremony"
                     className="event-image"
                   />
