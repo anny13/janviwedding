@@ -414,9 +414,9 @@ function App() {
               >
                 <div className="event-image-wrapper">
                   <img
-                    src="https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg"
-                    alt="Haldi and Mandap Ceremony"
-                    className="event-image"
+                    src="https://customer-assets.emergentagent.com/job_janvi-kishan-wedding/artifacts/lyr2rs4s_a597078b-93d2-4fb0-b068-85c1fd5f0d2f.jpeg"
+                    alt="Mandap Muhurat Ceremony"
+                    className="event-image event-image-contain"
                   />
                 </div>
                 <div className="event-content">

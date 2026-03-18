@@ -458,6 +458,11 @@
   transform: scale(1.1);
 }
 
+.event-image-contain {
+  object-fit: contain !important;
+  background-color: #FFF8E7;
+}
+
 .event-content {
   padding: 2rem;
 }
