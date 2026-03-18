@@ -7,7 +7,15 @@ function App() {
   const [curtainOpen, setCurtainOpen] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  const weddingDate = new Date('2026-04-25T19:00:00');
+  const weddingDate = new Date('2026-04-25T16:00:00');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurtainOpen(true);
+    }, 2000);
+
+    return () => clearTimeout(timer); // cleanup
+  }, []);
 
   useEffect(() => {
     const calculateCountdown = () => {
@@ -44,7 +52,7 @@ function App() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}
-            onClick={handleCurtainClick}
+            // onClick={handleCurtainClick}
             data-testid="curtain-overlay"
           >
             {/* Left Curtain Panel */}
@@ -89,8 +97,8 @@ function App() {
               transition={{ duration: 0.8 }}
               data-testid="curtain-click-area"
             >
-              <h1 className="curtain-names">Jhanvi & Kishan</h1>
-              <p className="curtain-subtitle">Open Invitation</p>
+              <h1 className="curtain-names">Jahanvi & Kishan</h1>
+              {/* <p className="curtain-subtitle">Open Invitation</p> */}
             </motion.div>
           </motion.div>
         )}
@@ -121,7 +129,27 @@ function App() {
                 transition={{ delay: 2.4 }}
                 data-testid="hero-subtitle"
               >
-                The Wedding Celebration of
+                || Shree Ganeshaya Namah ||
+              </motion.p>
+
+              <motion.p
+                className="hero-subtitle"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.4 }}
+                data-testid="hero-subtitle"
+              >
+                With the blessings of Jagat Janani Shree Umiya Mataji and our Kuldevi Shree Ambe Mataji, we joyfully invite you to celebrate the wedding of
+              </motion.p>
+
+              <motion.p
+                className="hero-subtitle"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.4 }}
+                data-testid="hero-subtitle"
+              >
+                (Daughter of Smt. Jyotsnaben & Shri Gopalbhai Jasmatbhai Dhamsaniya)
               </motion.p>
               <motion.h1
                 className="hero-names"
@@ -130,7 +158,7 @@ function App() {
                 transition={{ delay: 2.6, duration: 0.8 }}
                 data-testid="hero-names"
               >
-                Jhanvi
+                Jahanvi
               </motion.h1>
               <motion.h1
                 className="hero-names"
@@ -150,6 +178,24 @@ function App() {
               >
                 Kishan
               </motion.h1>
+              <motion.p
+                className="hero-subtitle"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.4 }}
+                data-testid="hero-subtitle"
+              >
+                (Son of Smt. Jyotsnaben & Shri Ghansyambhai Arjanbhai Patel)
+              </motion.p>
+              <motion.p
+                className="hero-subtitle"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.4 }}
+                data-testid="hero-subtitle"
+              >
+                On this auspicious occasion, we request your gracious presence to bless the newly wedded couple and make the celebration memorable.
+              </motion.p>
               <motion.div
                 className="hero-divider"
                 initial={{ width: 0 }}
@@ -242,8 +288,8 @@ function App() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   <img
-                    src="https://images.pexels.com/photos/29623186/pexels-photo-29623186.jpeg"
-                    alt="Jhanvi and Kishan"
+                    src="https://customer-assets.emergentagent.com/job_janvi-kishan-wedding/artifacts/5stdmf5z_tale%20of%20tale.JPEG"
+                    alt="Janvi and Kishan"
                     className="story-image"
                     data-testid="story-image"
                   />
@@ -258,7 +304,12 @@ function App() {
                   <p className="story-label" data-testid="story-label">THE BEGINNING</p>
                   <h2 className="story-title" data-testid="story-title">A Tale of Two Hearts</h2>
                   <p className="story-text" data-testid="story-text">
-                    What started as a simple conversation has blossomed into a beautiful journey of shared dreams and endless laughter. From the moment Jhanvi and Kishan first met, it was clear that their paths were meant to intertwine. Over the years, they've built a life filled with adventures, supporting each other through every milestone. Today, they are excited to embark on their greatest adventure yet.
+                    Jahanvi and Kishan’s story began with a beautiful introduction through family.
+                    Miles apart between Navsari and Hyderabad, their connection grew stronger with time, love, and understanding. What started as a meeting of two families soon blossomed into a bond of two hearts.
+                  </p>
+                  <br/>
+                  <p className="story-text" data-testid="story-text">
+                    Now, as they begin a new chapter together, they invite you to join them in celebrating their wedding and the beginning of their forever.
                   </p>
                 </motion.div>
               </div>
@@ -293,7 +344,7 @@ function App() {
                   />
                 </div>
                 <div className="event-content">
-                  <h3 className="event-title">Engagement</h3>
+                  <h3 className="event-title">Ring Ceremony</h3>
                   <div className="event-details">
                     <div className="event-detail-item">
                       <Calendar className="event-icon" />
@@ -301,7 +352,7 @@ function App() {
                     </div>
                     <div className="event-detail-item">
                       <Clock className="event-icon" />
-                      <span>6:30 PM</span>
+                      <span>6:00 PM</span>
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
@@ -309,7 +360,7 @@ function App() {
                     </div>
                   </div>
                   <p className="event-description">
-                    Kick off the festivities with a night of music, dance, and celebration.
+                    Celebrate the beginning of forever as the couple exchanges rings, marking the start of their beautiful journey together with love, joy, and blessings.
                   </p>
                 </div>
               </motion.div>
@@ -331,7 +382,45 @@ function App() {
                   />
                 </div>
                 <div className="event-content">
-                  <h3 className="event-title">Haldi & Mandap</h3>
+                  <h3 className="event-title">Mandap Muhrat</h3>
+                  <div className="event-details">
+                    <div className="event-detail-item">
+                      <Calendar className="event-icon" />
+                      <span>April 24, 2026</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <Clock className="event-icon" />
+                      <span>7:00 AM</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <MapPin className="event-icon" />
+                      <span>Dhartii Resort Hall</span>
+                    </div>
+                  </div>
+                  <p className="event-description">
+                    Witness the sacred Mandap Muhurat, where prayers and rituals bless the wedding venue and mark the auspicious beginning of the wedding celebrations.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="event-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -10 }}
+                data-testid="event-haldi"
+              >
+                <div className="event-image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg"
+                    alt="Haldi and Mandap Ceremony"
+                    className="event-image"
+                  />
+                </div>
+                <div className="event-content">
+                  <h3 className="event-title">Haldi</h3>
                   <div className="event-details">
                     <div className="event-detail-item">
                       <Calendar className="event-icon" />
@@ -343,11 +432,49 @@ function App() {
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
-                      <span>Lotus Garden</span>
+                      <span>Dhartii Resort Hall</span>
                     </div>
                   </div>
                   <p className="event-description">
-                    The sacred union. Witness the exchange of vows and the beautiful traditions of our heritage.
+                    Join us for a vibrant Haldi ceremony filled with laughter, traditions, and turmeric blessings as we prepare the bride and groom for their big day.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="event-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -10 }}
+                data-testid="event-haldi"
+              >
+                <div className="event-image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/14691580/pexels-photo-14691580.jpeg"
+                    alt="Haldi and Mandap Ceremony"
+                    className="event-image"
+                  />
+                </div>
+                <div className="event-content">
+                  <h3 className="event-title">Bollywood Night</h3>
+                  <div className="event-details">
+                    <div className="event-detail-item">
+                      <Calendar className="event-icon" />
+                      <span>April 24, 2026</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <Clock className="event-icon" />
+                      <span>8:00 PM</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <MapPin className="event-icon" />
+                      <span>Dhartii Resort Hall</span>
+                    </div>
+                  </div>
+                  <p className="event-description">
+                    Get ready for an electrifying Bollywood Night full of music, dance, and dazzling performances as friends and family light up the stage.
                   </p>
                 </div>
               </motion.div>
@@ -377,15 +504,15 @@ function App() {
                     </div>
                     <div className="event-detail-item">
                       <Clock className="event-icon" />
-                      <span>7:00 PM</span>
+                      <span>4:00 PM</span>
                     </div>
                     <div className="event-detail-item">
                       <MapPin className="event-icon" />
-                      <span>Starlight Hall</span>
+                      <span>Dhartii Resort Hall</span>
                     </div>
                   </div>
                   <p className="event-description">
-                    Let the magic continue. An evening of dinner, toast, and dancing as we celebrate our first night as a married couple.
+                    Join us as two hearts unite in the sacred bond of marriage, surrounded by love, traditions, and the blessings of family and friends.
                   </p>
                 </div>
               </motion.div>
@@ -419,8 +546,9 @@ function App() {
                   <p className="venue-card-text">
                     Dhartii RiverView Resort, Jalalpur, Navsari, Gujarat. A sanctuary of beauty where we will exchange our vows.
                   </p>
+                  {/* http://maps.google.com/maps?daddr=Dhartii+RiverView+Resort,+Jalalpur,+Navsari,+Gujarat */}
                   <a
-                    href="http://maps.google.com/maps?daddr=Dhartii+RiverView+Resort,+Jalalpur,+Navsari,+Gujarat"
+                    href="https://www.google.com/maps/search/?api=1&query=Dhartii+RiverView+Resort+Navsari"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="venue-button"
@@ -428,6 +556,183 @@ function App() {
                   >
                     Navigate to Venue
                   </a>
+                </motion.div>
+              </div>
+            </div>
+          </motion.section>
+
+          <motion.section
+            className="venue-section pb-0"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            data-testid="venue-section"
+          >
+            <div className="container">
+              <h2 className="section-title" data-testid="venue-title">A Joyful Note</h2>
+              <div className="venue-content-centered">
+                <motion.div
+                  className="venue-info-card"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  data-testid="venue-info"
+                >
+                  <p className="venue-card-text">
+                    Your presence will fill our celebration with fragrance like flowers in bloom.  
+When you arrive to bless the couple, our hearts will be filled with happiness and gratitude.
+                  </p>
+
+                  <h4 className="section-title mb-0" data-testid="venue-title" style={{fontSize:"18px"}}>With Love From</h4>
+                  <p className="venue-card-text venue-card-love mb-0">
+                    Miransh
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.section>
+
+          <motion.section
+            className="venue-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            data-testid="venue-section"
+          >
+            <div className="container">
+              <h2 className="section-title" data-testid="venue-title">Blessings From Elders</h2>
+              <div className="venue-content-centered">
+                <motion.div
+                  className="venue-info-card"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  data-testid="venue-info"
+                >
+                  <p className="venue-card-text mb-0">
+                    Shri Jasmatbhai Kurjibhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Paniben Jasmatbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Bhavanbhai Kurjibhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Jamuben Bhavanbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Harjibhai Kurjibhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Kantaben Harjibhai Dhamsaniya
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.section>
+
+          <motion.section
+            className="venue-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            data-testid="venue-section"
+          >
+            <div className="container">
+              <h2 className="section-title" data-testid="venue-title">Loving Family</h2>
+              <div className="venue-content-centered">
+                <motion.div
+                  className="venue-info-card"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  data-testid="venue-info"
+                >
+                  <p className="venue-card-text mb-0">
+                    Shri Mukeshbhai Jasmatbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Ansoyaben Mukeshbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Gopalbhai Jasmatbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Jyotsnaben Gopalbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Pravinbhai Jasmatbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Bhavishaben Pravinbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Jayeshbhai Bhavanbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Jayshreeben Jayeshbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Vipulbhai Bhavanbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Nishaben Vipulbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Sandipbhai Harjibhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Rinaben Sandipbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shri Avadhbhai Mukeshbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Smt Nimishaben Avadhbhai Dhamsaniya
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.section>
+
+          <motion.section
+            className="venue-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            data-testid="venue-section"
+          >
+            <div className="container">
+              <h2 className="section-title" data-testid="venue-title">Best Wishes From</h2>
+              <div className="venue-content-centered">
+                <motion.div
+                  className="venue-info-card"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  data-testid="venue-info"
+                >
+                  <p className="venue-card-text mb-0">
+                    Parth Gopalbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Deep Pravinbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Panth Vipulbhai Dhamsaniya
+                  </p>
+                  <p className="venue-card-text mb-0">
+                    Shivansh Sandipbhai Dhamsaniya
+                  </p>
                 </motion.div>
               </div>
             </div>
@@ -446,7 +751,7 @@ function App() {
               We look forward to celebrating our special day with you and creating beautiful memories together.
             </p>
             <div className="footer-divider" />
-            <p className="footer-couple">Jhanvi & Kishan</p>
+            <p className="footer-couple">Jahanvi & Kishan</p>
           </motion.footer>
         </div>
       )}
