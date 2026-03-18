@@ -416,7 +416,7 @@ function App() {
                   <img
                     src="https://customer-assets.emergentagent.com/job_janvi-kishan-wedding/artifacts/lyr2rs4s_a597078b-93d2-4fb0-b068-85c1fd5f0d2f.jpeg"
                     alt="Mandap Muhurat Ceremony"
-                    className="event-image event-image-contain"
+                    className="event-image"
                   />
                 </div>
                 <div className="event-content">
