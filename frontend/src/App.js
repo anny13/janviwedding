@@ -120,7 +120,7 @@ function App() {
             <div className="hero-overlay" />
             <motion.div
               className="hero-content"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 2.2 }}
             >
@@ -228,7 +228,7 @@ function App() {
           {/* Countdown Section */}
           <motion.section
             className="countdown-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -274,7 +274,7 @@ function App() {
           {/* Story Section */}
           <motion.section
             className="story-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -286,7 +286,7 @@ function App() {
                   className="story-image-container"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   <img
@@ -300,7 +300,7 @@ function App() {
                   className="story-content"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <p className="story-label" data-testid="story-label">THE BEGINNING</p>
@@ -321,20 +321,20 @@ function App() {
           {/* Events Schedule Section */}
           <motion.section
             className="events-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
             data-testid="events-section"
           >
             <h2 className="section-title" data-testid="events-title">The Celebration Schedule</h2>
             <div className="events-container">
               <motion.div
                 className="event-card"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
                 whileHover={{ y: -10 }}
                 data-testid="event-engagement"
               >
@@ -367,12 +367,12 @@ function App() {
                 </div>
               </motion.div>
 
-<motion.div
+              <motion.div
                 className="event-card"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
                 whileHover={{ y: -10 }}
                 data-testid="event-haldi"
               >
@@ -407,10 +407,10 @@ function App() {
 
               <motion.div
                 className="event-card"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 whileHover={{ y: -10 }}
                 data-testid="event-haldi"
               >
@@ -445,10 +445,10 @@ function App() {
 
               <motion.div
                 className="event-card"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 whileHover={{ y: -10 }}
                 data-testid="event-haldi"
               >
@@ -483,10 +483,10 @@ function App() {
 
               <motion.div
                 className="event-card"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
                 whileHover={{ y: -10 }}
                 data-testid="event-wedding"
               >
@@ -527,10 +527,10 @@ function App() {
 
               <motion.div
                 className="event-card"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
                 whileHover={{ y: -10 }}
                 data-testid="event-wedding"
               >
@@ -582,7 +582,7 @@ as the family showers their affection and good wishes upon the bride.
           {/* Venue Section */}
           <motion.section
             className="venue-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -595,8 +595,8 @@ as the family showers their affection and good wishes upon the bride.
                   className="venue-info-card"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   data-testid="venue-info"
                 >
                   <div className="venue-icon-wrapper">
@@ -623,7 +623,7 @@ as the family showers their affection and good wishes upon the bride.
 
           <motion.section
             className="venue-section pb-0"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -636,8 +636,8 @@ as the family showers their affection and good wishes upon the bride.
                   className="venue-info-card"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   data-testid="venue-info"
                 >
                   <p className="venue-card-text">
@@ -656,7 +656,7 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
 
           <motion.section
             className="venue-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -669,8 +669,8 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
                   className="venue-info-card"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   data-testid="venue-info"
                 >
                   <p className="venue-card-text mb-0">
@@ -698,7 +698,7 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
 
           <motion.section
             className="venue-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -711,8 +711,8 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
                   className="venue-info-card"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   data-testid="venue-info"
                 >
                   <p className="venue-card-text mb-0">
@@ -764,7 +764,7 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
 
           <motion.section
             className="venue-section"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
@@ -777,8 +777,8 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
                   className="venue-info-card"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   data-testid="venue-info"
                 >
                   <p className="venue-card-text mb-0">
@@ -803,7 +803,7 @@ When you arrive to bless the couple, our hearts will be filled with happiness an
             className="footer"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
             data-testid="footer"
           >
