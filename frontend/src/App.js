@@ -97,7 +97,9 @@ function App() {
               transition={{ duration: 0.8 }}
               data-testid="curtain-click-area"
             >
-              <h1 className="curtain-names">Jahanvi & Kishan</h1>
+              <h1 className="curtain-names">Jahanvi</h1>
+              <h1 className="curtain-names">&</h1>
+              <h1 className="curtain-names">Kishan</h1>
               {/* <p className="curtain-subtitle">Open Invitation</p> */}
             </motion.div>
           </motion.div>
@@ -513,6 +515,64 @@ function App() {
                   </div>
                   <p className="event-description">
                     Join us as two hearts unite in the sacred bond of marriage, surrounded by love, traditions, and the blessings of family and friends.
+                  </p><br/>
+                  <p className="event-description font-semibold">
+                    We request the pleasure of your company for an evening of celebration and delightful dining.
+                  </p><br/>
+                  <p className="event-description font-semibold">
+                    ⏰ Dinner from 7:00 PM onwards
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="event-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ y: -10 }}
+                data-testid="event-wedding"
+              >
+                {/* <div className="event-image-wrapper">
+                  <img
+                    src="https://customer-assets.emergentagent.com/job_janvi-kishan-wedding/artifacts/tryfbowc_06629cd9-ce33-4deb-b2b6-6811213c2d79.jpeg"
+                    alt="Wedding Ceremony"
+                    className="event-image"
+                  />
+                </div> */}
+                <div className="event-content">
+                  <h3 className="event-title">Mameru Celebration</h3>
+                  <div className="event-details">
+                    <div className="event-detail-item">
+                      <Calendar className="event-icon" />
+                      <span>April 24, 2026</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <Clock className="event-icon" />
+                      <span>9:30 AM</span>
+                    </div>
+                    <div className="event-detail-item">
+                      <MapPin className="event-icon" />
+                      <span>Dhartii Resort Hall</span>
+                    </div>
+                  </div>
+                  <p className="event-description">
+                    Celebrating the cherished bond of love and blessings from the maternal side,
+this beautiful tradition brings together warmth, joy, and heartfelt emotions,
+as the family showers their affection and good wishes upon the bride.
+                  </p><br/>
+                  <p className="event-description font-semibold text-center">
+                    Mameru Ceremony will be graciously performed by
+                  </p><br/>
+                  <p className="event-description font-semibold text-center">
+                    Shri Umeshbhai Lakshmanbhai Godhani
+                  </p>
+                  <p className="event-description font-semibold text-center">
+                    Shri Vijaybhai Lakshmanbhai Godhani
+                  </p>
+                  <p className="event-description font-semibold text-center">
+                    Om, kishan, Niv, Samarth
                   </p>
                 </div>
               </motion.div>
